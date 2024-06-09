@@ -28,7 +28,7 @@ const Register = ({ navigation }) => {
             .then(() => {
                 Alert.alert("Success", "Account created successfully");
                 setValues({ email: '', password: '', confirmPassword: '' });
-                navigation.navigate('Login'); // Assuming 'Login' is the name of your login screen
+                navigation.navigate('Login'); // Điều hướng đến màn hình Login sau khi đăng ký thành công
             })
             .catch(error => {
                 Alert.alert("Error", error.message);
@@ -41,12 +41,6 @@ const Register = ({ navigation }) => {
                 <Text style={styles.title}>Register Here</Text>
                 <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                     <View style={styles.form}>
-                    <TextInput
-                            placeholder='Full Name'
-                            value={values.fullname}
-                            onChangeText={val => updateInputval(val, 'fullname')}
-                            style={styles.input}
-                        />
                         <TextInput
                             placeholder='Email'
                             value={values.email}
@@ -67,7 +61,7 @@ const Register = ({ navigation }) => {
                             secureTextEntry
                             style={styles.input}
                         />
-</View>
+                    </View>
                     <TouchableOpacity onPress={registerSubmit} style={styles.button}>
                         <Text style={styles.buttonText}>Register</Text>
                     </TouchableOpacity>
